@@ -1,6 +1,6 @@
 # Serializer Component
 
-The Serializer classes provide functional with serialization such as check if string is serialized.<br>
+The Serializer classes provide functional with serialization such as check if string is serialized or maybe serialize for prevent double serialization.
 
 [![Latest Stable Version](https://poser.pugx.org/rundiz/serializer/v/stable)](https://packagist.org/packages/rundiz/serializer)
 [![License](https://poser.pugx.org/rundiz/serializer/license)](https://packagist.org/packages/rundiz/serializer)
