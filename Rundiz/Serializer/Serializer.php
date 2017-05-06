@@ -129,6 +129,7 @@ class Serializer
     /**
      * Check first that data is serialized or not, if yes then unserialize it otherwise return as is.
      * 
+     * @since 1.0.1
      * @param mixed $value The data to be unserialize.
      * @return mixed Return unserialized value.
      */
