@@ -1,6 +1,7 @@
 # Serializer Component
 
-The Serializer classes provide functional with serialization such as check if string is serialized or maybe serialize for prevent double serialization.
+The Serializer classes provide functional with serialization such as check if string is serialized, maybe serialize, or maybe unserialize for prevent double serialization.
+This Serializer also supported unicode text.
 
 [![Latest Stable Version](https://poser.pugx.org/rundiz/serializer/v/stable)](https://packagist.org/packages/rundiz/serializer)
 [![License](https://poser.pugx.org/rundiz/serializer/license)](https://packagist.org/packages/rundiz/serializer)
@@ -35,6 +36,16 @@ $raw_data = array('mango', 'tree' => array('mango', 'banana'));
 
 echo $Serializer->maybeSerialize($raw_data);// a:2:{i:0;s:5:"mango";s:4:"tree";a:2:{i:0;s:5:"mango";i:1;s:6:"banana";}}
 echo \Rundiz\Serializer\SerializerStatic::maybeSerialize($raw_data);// a:2:{i:0;s:5:"mango";s:4:"tree";a:2:{i:0;s:5:"mango";i:1;s:6:"banana";}}
+```
+
+### Check first if data is not unserialized then unserialize it:
+
+```php
+$serialized_data = 'i:-5436;';
+
+echo $Serializer->maybeUnserialize($serialized_data);// -5436 (integer)
+echo \Rundiz\Serializer\SerializerStatic::maybeUnserialize($serialized_data);// -5436 (integer)
+echo \Rundiz\Serializer\SerializerStatic::maybeUnserialize(-5436);// -5436 (integer)
 ```
 
 ---

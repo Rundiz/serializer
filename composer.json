@@ -1,7 +1,7 @@
 {
 	"name": "rundiz/serializer",
 	"type": "library",
-	"description": "The Serializer classes provide functional with serialization such as check if string is serialized.",
+	"description": "The Serializer classes provide functional with serialization such as check if string is serialized. It is supported unicode text.",
 	"keywords": ["serialized", "isSerialized", "is serialized", "check if serialized"],
 	"license": "MIT",
 	"authors": [

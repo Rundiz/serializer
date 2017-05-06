@@ -18,7 +18,7 @@ $Serializer = new Rundiz\Serializer\Serializer();
 
 echo '<meta charset="utf-8">'."\n";
 echo '<h2>Check is serialized for raw PHP data types</h2>'."\n";
-for ($i = 1; $i <= 13; $i++) {
+for ($i = 1; $i <= 14; $i++) {
     echo '$var_'.$i.' = <pre style="background-color: #222; color: grey; margin: 0; padding: 5px;">'.var_export(${'var_'.$i}, true).'</pre>';
     echo '<span style="color: red;">'.gettype(${'var_'.$i}).'</span>';
     echo "<br>\n";
@@ -36,7 +36,7 @@ for ($i = 1; $i <= 13; $i++) {
 
 echo '<hr>'."\n";
 echo '<h2>Check is serialized for serialized string and fake serialized string</h2>'."\n";
-for ($i = 1; $i <= 14; $i++) {
+for ($i = 1; $i <= 15; $i++) {
     echo '$var_'.$i.' = <pre style="background-color: #222; color: grey; margin: 0; padding: 5px;">'.var_export(${'varslr_'.$i}, true).'</pre>';
     echo '<span style="color: red;">'.gettype(${'varslr_'.$i}).'</span>';
     echo "<br>\n";
@@ -56,7 +56,7 @@ unset($Serializer);
 
 echo '<hr>'."\n";
 echo '<h2>Check is serialized by using static method</h2>'."\n";
-for ($i = 1; $i <= 14; $i++) {
+for ($i = 1; $i <= 15; $i++) {
     echo '$var_'.$i.' = <pre style="background-color: #222; color: grey; margin: 0; padding: 5px;">'.var_export(${'varslr_'.$i}, true).'</pre>';
     echo '<span style="color: red;">'.gettype(${'varslr_'.$i}).'</span>';
     echo "<br>\n";
