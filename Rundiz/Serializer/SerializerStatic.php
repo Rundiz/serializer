@@ -14,6 +14,7 @@ namespace Rundiz\Serializer;
  * 
  * @method boolean isSerialized(string $string) Check if string is serialized
  * @method string maybeSerialize(mixed $value) Check first that data is serialized or not, if not then serialize it otherwise return as is.
+ * @method string maybeUnserialize(mixed $value) Check first that data is serialized or not, if yes then unserialize it otherwise return as is.
  */
 class SerializerStatic
 {
