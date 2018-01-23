@@ -2,8 +2,6 @@
 /**
  * Serializer class.
  * 
- * @package Number
- * @version 1.0.1
  * @author Vee W.
  * @license http://opensource.org/licenses/MIT MIT
  */
@@ -15,6 +13,8 @@ namespace Rundiz\Serializer;
 /**
  * Works with serialization such as check if string is serialized.
  *
+ * @package Serializer
+ * @version 1.0.1
  * @author Vee W.
  * @since 1.0
  */
