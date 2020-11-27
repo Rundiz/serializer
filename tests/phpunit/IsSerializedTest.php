@@ -17,6 +17,7 @@ class IsSerializedTest extends \PHPUnit\Framework\TestCase
         $this->assertTrue($Serializer->isSerialized('b:0;'));
         $this->assertFalse($Serializer->isSerialized('b:2;'));
         $this->assertTrue(\Rundiz\Serializer\SerializerStatic::isSerialized('b:1;'));
+        $this->assertFalse(\Rundiz\Serializer\SerializerStatic::isSerialized('b:2;'));
     }// testSerializedBoolean
 
 
@@ -27,6 +28,7 @@ class IsSerializedTest extends \PHPUnit\Framework\TestCase
         $this->assertTrue($Serializer->isSerialized('i:-5436;'));
         $this->assertTrue(\Rundiz\Serializer\SerializerStatic::isSerialized('i:1234567890123456;'));
         $this->assertFalse($Serializer->isSerialized('i:1213.45;'));
+        $this->assertFalse(\Rundiz\Serializer\SerializerStatic::isSerialized('i:1213.45;'));
     }// testSerializedInteger
 
 

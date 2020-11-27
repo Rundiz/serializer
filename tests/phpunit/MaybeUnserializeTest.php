@@ -16,8 +16,8 @@ class MaybeUnserializeTest extends \PHPUnit\Framework\TestCase
         $serialized_array = 'a:3:{i:0;s:8:"zero key";s:1:"a";s:5:"a key";s:2:"aa";a:4:{i:0;s:5:"multi";i:1;s:9:"dimension";s:5:"array";s:3:"key";s:4:"lang";s:21:"ภาษาไทย";}}';
 
         $Serializer = new \Rundiz\Serializer\Serializer();
-        $this->assertEquals($Serializer->maybeUnserialize($raw_array), $raw_array);
-        $this->assertEquals(\Rundiz\Serializer\SerializerStatic::maybeUnserialize($raw_array), $raw_array);
+        $this->assertSame($Serializer->maybeUnserialize($raw_array), $raw_array);
+        $this->assertSame(\Rundiz\Serializer\SerializerStatic::maybeUnserialize($raw_array), $raw_array);
     }// testUnserialized
 
 
@@ -27,8 +27,8 @@ class MaybeUnserializeTest extends \PHPUnit\Framework\TestCase
         $serialized_array = 'a:3:{i:0;s:8:"zero key";s:1:"a";s:5:"a key";s:2:"aa";a:4:{i:0;s:5:"multi";i:1;s:9:"dimension";s:5:"array";s:3:"key";s:4:"lang";s:21:"ภาษาไทย";}}';
 
         $Serializer = new \Rundiz\Serializer\Serializer();
-        $this->assertEquals($Serializer->maybeUnserialize($serialized_array), $raw_array);
-        $this->assertEquals(\Rundiz\Serializer\SerializerStatic::maybeUnserialize($serialized_array), $raw_array);
+        $this->assertSame($Serializer->maybeUnserialize($serialized_array), $raw_array);
+        $this->assertSame(\Rundiz\Serializer\SerializerStatic::maybeUnserialize($serialized_array), $raw_array);
     }// testSerialized
 
 
