@@ -1,6 +1,6 @@
 # Serializer Component
 
-The Serializer classes provide functional with serialization such as check if string is serialized, maybe serialize, or maybe unserialize for prevent double serialization.
+The Serializer classes provide functional with serialization such as check if string is serialized, maybe serialize, maybe unserialize, or is JSON encoded (valid JSON) for prevent double serialization.
 This Serializer also supported unicode text.
 
 [![Latest Stable Version](https://poser.pugx.org/rundiz/serializer/v/stable)](https://packagist.org/packages/rundiz/serializer)
@@ -46,6 +46,18 @@ $serialized_data = 'i:-5436;';
 echo $Serializer->maybeUnserialize($serialized_data);// -5436 (integer)
 echo \Rundiz\Serializer\SerializerStatic::maybeUnserialize($serialized_data);// -5436 (integer)
 echo \Rundiz\Serializer\SerializerStatic::maybeUnserialize(-5436);// -5436 (integer)
+```
+
+### Working with JSON:
+```php
+var_dump($Serializer->isJSONEncoded('"Hello world"'));// true
+var_dump($Serializer->isJSONEncoded('012345'));// false
+var_dump($Serializer->isJSONEncoded('true'));// true
+var_dump($Serializer->isJSONEncoded('false'));// true
+var_dump($Serializer->isJSONEncoded('null'));// true
+var_dump($Serializer->isJSONEncoded(true));// true
+var_dump($Serializer->isJSONEncoded(false));// false
+var_dump($Serializer->isJSONEncoded(null));// false
 ```
 
 ---

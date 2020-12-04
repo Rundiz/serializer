@@ -14,12 +14,54 @@ namespace Rundiz\Serializer;
  * Works with serialization such as check if string is serialized.
  *
  * @package Serializer
- * @version 1.0.2
+ * @version 1.0.3
  * @author Vee W.
  * @since 1.0
  */
 class Serializer
 {
+
+
+    /**
+     * Check if JSON encoded or valid JSON string.
+     * 
+     * Please double check with type, otherwise it may cause unexpected result when you encode/decode it.<br>
+     * Example: `$Serializer->isJSONEncoded(true);` This will return true but when you decode, it will becomes 1 (int).<br>
+     * `$Serializer->isJSONEncoded('12345');` This will be also return true but when you decide, it will becomes 12345 (int).<br>
+     *
+     * @link https://stackoverflow.com/a/3845829/128761 Original source code.
+     * @since 1.0.3
+     * @param mixed $data The value to check.
+     * @return boolean Return `true` if it is valid JSON, `false` for not.
+     */
+    public function isJSONEncoded($data)
+    {
+        if (!is_scalar($data)) {
+            return false;
+        }
+
+        $pcre_regex = '
+        /
+        (?(DEFINE)
+            (?<number>   -? (?= [1-9]|0(?!\d) ) \d+ (\.\d+)? ([eE] [+-]? \d+)? )    
+            (?<boolean>   true | false | null )
+            (?<string>    " ([^"\\\\]* | \\\\ ["\\\\bfnrt\/] | \\\\ u [0-9a-f]{4} )* " )
+            (?<array>     \[  (?:  (?&json)  (?: , (?&json)  )*  )?  \s* \] )
+            (?<pair>      \s* (?&string) \s* : (?&json)  )
+            (?<object>    \{  (?:  (?&pair)  (?: , (?&pair)  )*  )?  \s* \} )
+            (?<json>   \s* (?: (?&number) | (?&boolean) | (?&string) | (?&array) | (?&object) ) \s* )
+        )
+        \A (?&json) \Z
+        /six   
+        ';
+        $pcre_regex = trim($pcre_regex);
+
+        $checkResult = preg_match($pcre_regex, $data);
+        if ($checkResult === 1) {
+            return true;
+        }
+        return false;
+    }// isJSONEncoded
 
 
     /**
