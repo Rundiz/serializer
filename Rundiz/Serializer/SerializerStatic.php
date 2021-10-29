@@ -12,6 +12,7 @@ namespace Rundiz\Serializer;
 /**
  * Works with serialize.
  * 
+ * @method bool isBase64Encoded(string $string) Check if string is valid base 64 encoded.
  * @method bool isSerialized(string $string) Check if string is serialized.
  * @method bool isJSONEncoded($data) Check if JSON encoded or valid JSON string.
  * @method string maybeSerialize(mixed $value) Check first that data is serialized or not, if not then serialize it otherwise return as is.

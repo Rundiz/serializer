@@ -14,12 +14,40 @@ namespace Rundiz\Serializer;
  * Works with serialization such as check if string is serialized.
  *
  * @package Serializer
- * @version 1.0.3
+ * @version 1.0.4
  * @author Vee W.
  * @since 1.0
  */
 class Serializer
 {
+
+
+    /**
+     * Check if the given string is valid base 64 encoded.
+     *
+     * @since 1.0.4
+     * @param string $data The value to check.
+     * @return bool Return `true` if valid base 64 encoded, `false` for not.
+     */
+    public function isBase64Encoded($data)
+    {
+        if (!is_string($data)) {
+            // if the value to check is NOT string
+            // Due to base64_decode() on PHP document site require that this argument should be string, if it is not then just return false.
+            return false;
+        }
+
+        $decoded = base64_decode($data, true);
+        if (false === $decoded) {
+            return false;
+        }
+
+        if (false === json_encode([$decoded])) {
+            return false;
+        }
+
+        return true;
+    }// isBase64Encoded
 
 
     /**
