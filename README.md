@@ -60,6 +60,15 @@ var_dump($Serializer->isJSONEncoded(false));// false
 var_dump($Serializer->isJSONEncoded(null));// false
 ```
 
+### Working with base64:
+```php
+var_dump($Serializer->isBase64Encoded(5555));// false
+var_dump($Serializer->isBase64Encoded('NTU1NQ=='));// true
+var_dump($Serializer->isBase64Encoded('test'));// false
+var_dump($Serializer->isBase64Encoded('dGVzdA=='));// true
+var_dump($Serializer->isBase64Encoded(null));// false
+```
+
 ---
 
 For more example, please look inside **tests** folder.
