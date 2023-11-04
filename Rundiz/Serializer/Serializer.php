@@ -208,7 +208,7 @@ class Serializer
         if ($this->isSerialized($value) === false) {
             return $value;
         }
-        return @unserialize($value);
+        return @unserialize(trim($value));
     }// maybeUnserialize
 
 
