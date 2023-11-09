@@ -14,7 +14,7 @@ namespace Rundiz\Serializer;
  * Works with serialization such as check if string is serialized.
  *
  * @package Serializer
- * @version 1.0.4
+ * @version 1.0.5
  * @author Vee W.
  * @since 1.0
  */
