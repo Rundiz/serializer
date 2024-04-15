@@ -1,0 +1,41 @@
+
+
+code {
+    background-color: #eee;
+    color: #222;
+}
+
+
+pre {
+    background-color: #eee;
+    color: #222;
+    margin: 5px 0;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+    word-break: break-all;
+    word-wrap: break-word;
+}
+
+
+.code-result {
+    color: rgb(0, 191, 0);
+}
+
+
+.code-value {
+    background-color: #333;
+    color: #eee;
+}
+
+
+.each-value {
+    margin: 0 0 30px;
+}
+
+
+.expected-result {
+    color: rgb(0, 191, 0);
+}
+.unexpected-result {
+    color: red;
+}

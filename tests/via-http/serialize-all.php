@@ -1,34 +1,40 @@
 <?php
 /** 
- * Test serialize all data types in common-types.php
+ * Test serialize all data types in .common-types.php
  */
 
-require __DIR__ . DIRECTORY_SEPARATOR . 'common-types.php';
+require __DIR__ . DIRECTORY_SEPARATOR . '.common-types.php';
 
 
 if (!class_exists('\\Rundiz\\Serializer\\Serializer')) {
     require dirname(dirname(__DIR__)).DIRECTORY_SEPARATOR.'Rundiz'.DIRECTORY_SEPARATOR.'Serializer'.DIRECTORY_SEPARATOR.'Serializer.php';
 }
+?>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Serialize all</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h1>Serialize all items</h1>
+        <?php
+        $Serializer = new Rundiz\Serializer\Serializer();
 
+        for ($i = 1; $i <= 14; $i++) {
+            echo '<div class="each-value">' . PHP_EOL;
+            echo '<code>$var_' . $i . '</code> = ';
+            echo '<pre class="code-value">' . var_export(${'var_' . $i}, true) . '</pre>' . PHP_EOL;
+            $serialized = $Serializer->maybeSerialize(${'var_' . $i});
+            echo 'serialized: <pre class="code-result">' . var_export($serialized, true) . '</pre>';
+            echo PHP_EOL;
+            unset($serialized);
+            echo '</div>' . PHP_EOL;
+        }// endfor;
+        unset($i);
 
-$Serializer = new Rundiz\Serializer\Serializer();
-
-echo '<meta charset="utf-8">'."\n";
-for ($i = 1; $i <= 14; $i++) {
-    echo '$var_'.$i.' = <pre style="background-color: #222; color: grey; margin: 0; padding: 5px;">'.var_export(${'var_'.$i}, true).'</pre>';
-    echo '<span style="color: red;">'.gettype(${'var_'.$i}).'</span>';
-    echo "<br>\n";
-    echo 'serialized = <span style="color: green;">'.htmlspecialchars($Serializer->maybeSerialize(${'var_'.$i}), ENT_QUOTES).'</span>';
-    echo '<br style="clear: both; margin-bottom: 60px;">'."\n";
-}
-
-
-/*echo '<hr>';
-
-
-echo 'Strings below is for use with test unserialize and serialized check.<br>';
-for ($i = 1; $i <= 14; $i++) {
-    echo '$varslr_'.$i.' = \''.htmlspecialchars(serialize(${'var_'.$i}), ENT_QUOTES).'\';<br>'."\n";
-}*/
-
-unset($Serializer);
+        unset($Serializer);
+        ?> 
+    </body>
+</html>

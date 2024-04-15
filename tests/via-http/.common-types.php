@@ -11,7 +11,7 @@
  */
 
 
-// raw data types
+// raw data types. all the values below must not be serialized.
 $var_1 = true;
 $var_2 = 1213;
 $var_3 = -5436;
@@ -39,7 +39,7 @@ $var_14->propertyNull = $var_8;
 $var_14->propertySerialized = 'O:8:"stdClass":2:{s:9:"property1";s:10:"Property 1";s:9:"property2";s:41:"พร็อพเพอร์ตี้ 2";}';
 
 
-// serialized strings
+// serialized strings. all the values below must be valid serialized string.
 $varslr_1 = 'b:1;';
 $varslr_2 = 'i:1213;';
 $varslr_3 = 'i:-5436;';
