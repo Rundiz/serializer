@@ -7,6 +7,8 @@ This Serializer also supported unicode text.
 [![License](https://poser.pugx.org/rundiz/serializer/license)](https://packagist.org/packages/rundiz/serializer)
 [![Total Downloads](https://poser.pugx.org/rundiz/serializer/downloads)](https://packagist.org/packages/rundiz/serializer)
 
+Tested up to PHP 8.4.
+
 ## Example:
 
 ### Check if string is serialized:
