@@ -14,7 +14,7 @@ namespace Rundiz\Serializer;
  * Works with serialization such as check if string is serialized.
  *
  * @package Serializer
- * @version 1.0.5
+ * @version 1.0.6
  * @author Vee W.
  * @since 1.0
  */
@@ -155,10 +155,10 @@ class Serializer
                 }
             case 'i':
                 // this maybe integer
-                return (boolean) preg_match('#^'.$string[0].':[0-9\-]+\\'.$last_char.'#', $string);
+                return (bool) preg_match('#^'.$string[0].':[0-9\-]+\\'.$last_char.'#', $string);
             case 'd':
                 // this maybe double or float
-                return (boolean) preg_match('#^'.$string[0].':[0-9\.E\-\+]+\\'.$last_char.'#', $string);
+                return (bool) preg_match('#^'.$string[0].':[0-9\.E\-\+]+\\'.$last_char.'#', $string);
             case 's':
                 // this maybe string
                 $exp_string = explode(':', $string);
@@ -174,7 +174,7 @@ class Serializer
                 // this maybe array
             case 'O':
                 // this maybe object
-                return (boolean) preg_match('#^'.$string[0].':[0-9]+\:#s', $string);
+                return (bool) preg_match('#^'.$string[0].':[0-9]+\:#s', $string);
         }// endswitch;
 
         return false;
